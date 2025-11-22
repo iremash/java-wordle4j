@@ -18,7 +18,7 @@ class WordleTest {
     void loadTheGame() throws Exception {
         WordleDictionaryLoader wdl = new WordleDictionaryLoader(log);
         dictionary = wdl.loadDictionary(
-                "java-wordle4j\\words_ru.txt");
+                "words_ru.txt");
         game = new WordleGame(dictionary, log);
     }
 
