@@ -29,7 +29,7 @@ public class WordleGame {
 
     private final LinkedHashMap<String, String> usedWords = new LinkedHashMap<>();
 
-    final int WORD_LENGTH = 5;
+    final int wordsLength = 5;
     private final Map<String, ArrayList<Integer>> rightLetters = new LinkedHashMap<>();
     private final List<String> misplacedLetters = new LinkedList<>();
     private final List<String> wrongLetters = new LinkedList<>();
@@ -102,7 +102,7 @@ public class WordleGame {
 
     public List<Character> checkForRightLetters(String word, StringBuilder sb) {
         List<Character> available = new ArrayList<>();
-        for (int i = 0; i < WORD_LENGTH; i++) {
+        for (int i = 0; i < wordsLength; i++) {
             String letter = String.valueOf(word.charAt(i));
             String answerLetter = String.valueOf(answer.charAt(i));
             available.add(answer.charAt(i));
@@ -118,7 +118,7 @@ public class WordleGame {
     }
 
     public void checkOtherLetters(String word, StringBuilder sb, List<Character> available) {
-        for (int i = 0; i < WORD_LENGTH; i++) {
+        for (int i = 0; i < wordsLength; i++) {
             char chLetter = word.charAt(i);
             String sLetter = String.valueOf(chLetter);
             if (answer.contains(sLetter) && available.contains(chLetter)) {

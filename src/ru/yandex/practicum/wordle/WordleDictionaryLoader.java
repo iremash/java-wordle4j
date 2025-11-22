@@ -14,7 +14,7 @@ import java.util.List;
     на выходе должен быть класс WordleDictionary
  */
 public class WordleDictionaryLoader {
-    final int WORD_LENGTH = 5;
+    final int wordsLength = 5;
     PrintWriter fileOutput;
 
     public WordleDictionaryLoader(PrintWriter fileOutput) {
@@ -41,7 +41,7 @@ public class WordleDictionaryLoader {
     }
 
     public Boolean hasFiveLetters(String word) {
-        return (word.length() == WORD_LENGTH);
+        return (word.length() == wordsLength);
     }
 
 
