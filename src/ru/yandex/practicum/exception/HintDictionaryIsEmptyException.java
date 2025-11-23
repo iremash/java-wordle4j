@@ -1,6 +1,6 @@
 package ru.yandex.practicum.exception;
 public class HintDictionaryIsEmptyException extends Exception {
-    public HintDictionaryIsEmptyException() {
-        super();
+    public HintDictionaryIsEmptyException(String message) {
+        super(message);
     }
 }

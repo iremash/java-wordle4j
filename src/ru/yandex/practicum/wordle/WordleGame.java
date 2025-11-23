@@ -4,7 +4,6 @@ import ru.yandex.practicum.exception.HintDictionaryIsEmptyException;
 import ru.yandex.practicum.exception.WordIsAlreadyUsedException;
 import ru.yandex.practicum.exception.WordNotFoundInDictionaryException;
 
-import java.io.PrintWriter;
 import java.util.*;
 
 /*
@@ -34,7 +33,7 @@ public class WordleGame {
     private final List<String> misplacedLetters = new LinkedList<>();
     private final List<String> wrongLetters = new LinkedList<>();
     private final List<String> hints = new LinkedList<>();
-    PrintWriter fileOutput;
+    private final LogFileWork logWriter;
     Random random = new Random();
 
 
@@ -42,8 +41,8 @@ public class WordleGame {
         return usedWords;
     }
 
-    public WordleGame(WordleDictionary dictionary, PrintWriter fileOutput) {
-        this.fileOutput = fileOutput;
+    public WordleGame(WordleDictionary dictionary, LogFileWork logWriter) {
+        this.logWriter = logWriter;
         this.dictionary = dictionary;
         answer = dictionary.getWord(random.nextInt(0, dictionary.getLength()));
         steps = 6;
@@ -77,7 +76,7 @@ public class WordleGame {
     public String giveAHint() throws HintDictionaryIsEmptyException, RuntimeException {
         List<String> words = dictionary.findWordsForHint(rightLetters, wrongLetters, misplacedLetters, usedWords, hints);
         if (words.isEmpty()) {
-            throw new HintDictionaryIsEmptyException();
+            throw new HintDictionaryIsEmptyException("Словарь подсказок пуст");
         }
         String hint = answer;
         int countControl = 0;

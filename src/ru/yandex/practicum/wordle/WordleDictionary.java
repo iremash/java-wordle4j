@@ -1,6 +1,6 @@
 package ru.yandex.practicum.wordle;
 
-import java.io.PrintWriter;
+
 import java.util.*;
 
 /*
@@ -10,11 +10,11 @@ import java.util.*;
  */
 public class WordleDictionary {
     private final List<String> words;
-    PrintWriter fileOutput;
+    private final LogFileWork logWriter;
 
-    public WordleDictionary(List<String> words, PrintWriter fileOutput) {
+    public WordleDictionary(List<String> words, LogFileWork logWriter) {
         this.words = words;
-        this.fileOutput = fileOutput;
+        this.logWriter = logWriter;
     }
 
     public boolean isInDictionary(String word) {

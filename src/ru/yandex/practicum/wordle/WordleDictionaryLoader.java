@@ -3,7 +3,6 @@ package ru.yandex.practicum.wordle;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +13,11 @@ import java.util.List;
     на выходе должен быть класс WordleDictionary
  */
 public class WordleDictionaryLoader {
-    final int wordsLength = 5;
-    PrintWriter fileOutput;
+    private final int wordsLength = 5;
+    private final LogFileWork logWriter;
 
-    public WordleDictionaryLoader(PrintWriter fileOutput) {
-        this.fileOutput = fileOutput;
+    public WordleDictionaryLoader(LogFileWork logWriter) {
+        this.logWriter = logWriter;
     }
 
     public WordleDictionary loadDictionary(String filename) throws IOException {
@@ -31,7 +30,7 @@ public class WordleDictionaryLoader {
                     words.add(getStandard(word));
                 }
             }
-            wd = new WordleDictionary(words, fileOutput);
+            wd = new WordleDictionary(words, logWriter);
         }
         return wd;
     }

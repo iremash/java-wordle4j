@@ -11,15 +11,15 @@ import ru.yandex.practicum.exception.WordNotFoundInDictionaryException;
 import ru.yandex.practicum.wordle.*;
 
 class WordleTest {
-    PrintWriter log;
+    LogFileWork logWriter;
     WordleDictionary dictionary;
     WordleGame game;
 
     void loadTheGame() throws Exception {
-        WordleDictionaryLoader wdl = new WordleDictionaryLoader(log);
+        WordleDictionaryLoader wdl = new WordleDictionaryLoader(logWriter);
         dictionary = wdl.loadDictionary(
                 "words_ru.txt");
-        game = new WordleGame(dictionary, log);
+        game = new WordleGame(dictionary, logWriter);
     }
 
     @Test
